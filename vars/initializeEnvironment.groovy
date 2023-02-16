@@ -1,4 +1,4 @@
-def call(String region="us-south",resource_group="ibm-internal-cicd-resource-group") {
+def call(String region="us-south",resource_group="Default") {
     script {
       ansiColor('xterm') {
            echo ""
