@@ -157,8 +157,8 @@ pipeline {
     }
     post {
         always {
-            archiveAllArtifacts("deploy/vars.tfvars")
-            /*cleanupOcp4Cluster()
+            /*archiveAllArtifacts("deploy/vars.tfvars")
+            cleanupOcp4Cluster()
             checkInfraError()
             processE2eResults()
             dbDashboardUpdateE2e()
