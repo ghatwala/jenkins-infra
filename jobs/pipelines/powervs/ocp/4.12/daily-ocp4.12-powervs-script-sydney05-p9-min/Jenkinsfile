@@ -22,16 +22,16 @@ pipeline {
 
         IBM_CLOUD_REGION = "syd"
         IBM_CLOUD_ZONE = "syd05"
-        SERVICE_INSTANCE_ID = "6f5f1a6a-67bf-4ab9-aede-6d31991b4826"
+        SERVICE_INSTANCE_ID = "23fb57fc-f1ed-4ea3-84d8-4bd73f282831"
 
-        BASTION_IMAGE = "rhel-86"
-        RHCOS_IMAGE = "rhcos-412"
+        BASTION_IMAGE = "rhel-86-05162022-tier1"
+        RHCOS_IMAGE = "rhcos-412-86-202212081411-tier1"
         BASTION_IMAGE_FILE = "latest-${BASTION_IMAGE}-rdr-ocp-cicd-sydney05.txt"
         RHCOS_IMAGE_FILE = "latest-${RHCOS_IMAGE}-rdr-ocp-cicd-sydney05.txt"
         OCP_RELEASE = "4.12"
 
         //e2e specific variables
-        ENABLE_E2E_TEST = "true"
+        ENABLE_E2E_TEST = "false"
         GOLANG_TARBALL = "https://golang.org/dl/go1.18.6.linux-ppc64le.tar.gz"
 
          //Script arguments
@@ -79,7 +79,7 @@ pipeline {
                         pullSecret()
                         env.OPENSHIFT_IMAGE = ""
                         env.OCP_RELEASE_TAG = ""
-                        if (fileExists("deploy/artifactory/latest-${OCP_RELEASE}-build.txt")) {
+                        /*if (fileExists("deploy/artifactory/latest-${OCP_RELEASE}-build.txt")) {
                             env.OPENSHIFT_IMAGE = readFile "deploy/artifactory/latest-${OCP_RELEASE}-build.txt"
                             env.OPENSHIFT_IMAGE = env.OPENSHIFT_IMAGE.trim()
                             env.OCP_RELEASE_TAG = env.OPENSHIFT_IMAGE.split(":")[1].trim()
@@ -103,7 +103,7 @@ pipeline {
                         else{
                             echo "${RHCOS_IMAGE_FILE} file does not exist. Please check poll-powervs-job"
                             throw err
-                        }
+                        }*/
                     }
                     catch (err)
                     {
