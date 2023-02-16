@@ -4,7 +4,7 @@ def call() {
         env.FAILED_STAGE=""
         //VMs setup
         if ( env.POWERVS == "true" ) {
-            env.NETWORK_NAME = "ocp-net"
+            env.NETWORK_NAME = "ocp-net-syd05-private-1"
             env.RHEL_USERNAME = "root"
             env.RHEL_SMT = "4"
             env.CLUSTER_DOMAIN = "redhat.com"
